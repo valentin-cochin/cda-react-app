@@ -25,7 +25,8 @@ class App extends React.Component {
     if (isLoggedIn) {
       button = <Logout onClick={this.handleLogoutClick} />;
     } else {
-      button = <Login onClick={this.handleLoginClick} />; }
+      button = <Login onClick={this.handleLoginClick} />;
+    }
     return (
       <div>
         {button}
