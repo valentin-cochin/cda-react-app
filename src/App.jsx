@@ -16,10 +16,11 @@ class App extends React.Component {
   }
 
   render() {
+    const { user } = this.state
     return (
       <div>
         <Hello
-          user={this.state.user}
+          user={user}
           formatUser={this.formatUser}
         />
       </div>
