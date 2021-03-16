@@ -8,9 +8,9 @@ class App extends React.Component {
     return (
       <div>
         {
-          arr.map((number) => {
+          arr.map((number, i) => {
             return (
-              <h2>{number}</h2>
+              <h2 key={i}>{number}</h2>
             )
           })
         }
