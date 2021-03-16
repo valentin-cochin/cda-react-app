@@ -8,7 +8,8 @@ class App extends React.Component {
   render() {
     return (
       <div>
-       <Hello/>
+       <Hello login='Toto'/>
+       <Hello login='Chips'/>
       </div>
     )
   }
