@@ -3,19 +3,20 @@ import React from 'react';
 
 class App extends React.Component {
 
-  formatUser = (user) => {
-    return user.firstName + " " + user.lastName
+  constructor(props) {
+    super(props)
+    console.log('CONSTRUCTOR')
+  }
+
+  componentDidMount() {
+    console.log("DID_MOUNT")
   }
 
   render() {
-    const user = {
-      firstName: 'Toto',
-      lastName: 'Dupond'
-    }
-
+    console.log('RENDER')
     return (
       <div>
-        <h1>Hello {this.formatUser(user)}</h1>
+        <h1>Hello </h1>
       </div>
     )
   }
