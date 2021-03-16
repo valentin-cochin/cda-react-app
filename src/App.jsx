@@ -1,23 +1,36 @@
 import React from 'react';
+import Login from './components/Login';
+import Logout from './components/Logout';
 
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleLoginClick = this.handleLoginClick.bind(this);
+    this.handleLogoutClick = this.handleLogoutClick.bind(this);
+    this.state = { isLoggedIn: false };
+  }
 
-    handleClick = (message) => {
-      console.log(message);
-    }
+  handleLoginClick() {
+    this.setState({ isLoggedIn: true });
+  }
 
-
-  formatUser = (user) => {
-    return user.firstName + " " + user.lastName
+  handleLogoutClick() {
+    this.setState({ isLoggedIn: false });
   }
 
   render() {
+    const isLoggedIn = this.state.isLoggedIn;
+    let button;
+    if (isLoggedIn) {
+      button = <Logout onClick={this.handleLogoutClick} />;
+    } else {
+      button = <Login onClick={this.handleLoginClick} />; }
     return (
-      <button onClick={() => this.handleClick("CLICK")}>
-        Click me!
-      </button>
-    )
+      <div>
+        {button}
+      </div>
+    );
   }
 }
 
