@@ -1,33 +1,21 @@
 import React from 'react';
-import Login from './components/Login';
-import Logout from './components/Logout';
 
 
 class App extends React.Component {
-
-  state = { isLoggedIn: false };
-
-  handleLoginClick = () => {
-    this.setState({ isLoggedIn: true });
-  }
-
-  handleLogoutClick = () => {
-    this.setState({ isLoggedIn: false });
-  }
-
   render() {
-    const isLoggedIn = this.state.isLoggedIn;
-    let button;
-    if (isLoggedIn) {
-      button = <Logout onClick={this.handleLogoutClick} />;
-    } else {
-      button = <Login onClick={this.handleLoginClick} />;
-    }
+    const arr = [1, 2, 3]
+
     return (
       <div>
-        {button}
+        {
+          arr.map((number) => {
+            return (
+              <h2>{number}</h2>
+            )
+          })
+        }
       </div>
-    );
+    )
   }
 }
 
