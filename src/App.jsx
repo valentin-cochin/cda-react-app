@@ -5,14 +5,23 @@ import Hello from './components/Hello';
 class App extends React.Component {
 
   state = {
-    login : 'Jean'
+    user: {
+      firstName: 'Jean',
+      lastName: 'Dupond'
+    }
+  }
+
+  formatUser = (user) => {
+    return user.firstName + " " + user.lastName
   }
 
   render() {
     return (
       <div>
-       <Hello login='Toto'/>
-       <Hello login={this.state.login}/>
+        <Hello
+          user={this.state.user}
+          formatUser={this.formatUser}
+        />
       </div>
     )
   }
