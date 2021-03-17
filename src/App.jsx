@@ -4,16 +4,26 @@ import * as yup from 'yup';
 import RadioButton from './components/RadioButton';
 
 const validationSchema = yup.object().shape({
+  firstName: yup.string().required(),
+  lastname: yup.string().required(),
+  birthDay: yup.date(),
+  email: yup.string().email().required(),
 })
 
 
 class App extends React.Component {
   state = {
     initialValues: {
-      gender: 'Mr',
+      gender: '',
       firstName: '',
       lastname: '',
-      birthDay: ''
+      birthDay: '',
+      streetNumber: '',
+      road: '',
+      city: '',
+      zipCode: '',
+      phoneNumber: '',
+      email: ''
     }
   }
 
@@ -28,22 +38,23 @@ class App extends React.Component {
           <Form>
             <Field
               component={RadioButton}
-              name="radioGroup"
+              name="gender"
               id="male"
               label="Mr"
             />
             <Field
               component={RadioButton}
-              name="radioGroup"
+              name="gender"
               id="female"
               label="Ms"
             />
             <Field
               component={RadioButton}
-              name="radioGroup"
+              name="gender"
               id="alien"
               label="Malien 🛸"
             />
+            <button type="submit">Submit</button>
           </Form>
         </Formik>
       </div>
