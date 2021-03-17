@@ -1,53 +1,51 @@
+import { Field, Form, Formik } from 'formik';
 import React from 'react';
-import SearchBar from './components/SearchBar';
-import Table from './components/Table';
+import * as yup from 'yup';
+import RadioButton from './components/RadioButton';
+
+const validationSchema = yup.object().shape({
+})
+
 
 class App extends React.Component {
   state = {
-    categories: [
-      {
-        label: "Sporting Goods",
-        items: [
-          {
-            name: "Football",
-            price: "49.99"
-          }, {
-            name: "Baseball",
-            price: "9.99"
-          }, {
-            name: "Basketball",
-            price: "29.99"
-          }
-        ]
-      }, {
-        label: "Electronics",
-        items: [
-          {
-            name: "iPod Touch",
-            price: "99.99$"
-          }, {
-            name: "iPhone 5",
-            price: "399.99$"
-          }, {
-            name: "Nexus 7",
-            price: "199.99$"
-          }
-        ]
-      }
-    ]
+    initialValues: {
+      gender: 'Mr',
+      firstName: '',
+      lastname: '',
+      birthDay: ''
+    }
   }
 
+  submit = (values) => console.log(values);
+
   render() {
-    const { categories } = this.state
+    const { initialValues } = this.state
     return (
       <div className="container">
-        <hr />
-        <h1 className="text-center text-uppercase">exercice react</h1>
-        <hr />
-        <div className="row justify-content-center">
-          <SearchBar />
-          <Table categories={categories} />
-        </div>
+        <h1>Inscription</h1>
+        <Formik initialValues={initialValues} onSubmit={this.submit}>
+          <Form>
+            <Field
+              component={RadioButton}
+              name="radioGroup"
+              id="male"
+              label="Mr"
+            />
+            <Field
+              component={RadioButton}
+              name="radioGroup"
+              id="female"
+              label="Ms"
+            />
+            <Field
+              component={RadioButton}
+              name="radioGroup"
+              id="alien"
+              label="Malien 🛸"
+            />
+          </Form>
+        </Formik>
       </div>
     )
   }
